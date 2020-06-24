@@ -11,7 +11,7 @@ function run() {
         toolbarSvgIcon: icon24,
         librarySvgIcon: icon48,
         onClick: () => {
-          alert('Update...')
+          alert('wtf')
         }
       }
     }
