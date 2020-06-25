@@ -30,7 +30,7 @@ function checkForCanvasWidgets(widgets){
     }
   }
 
-  updateCanvas(canvasWidgets);
+  updateCanvas(canvasWidgets, widgets);
 }
 
 async function updateCanvas(canvasWidgets, widgets){
@@ -38,10 +38,17 @@ async function updateCanvas(canvasWidgets, widgets){
   for (let i = 0; i < canvasWidgets.length; i++){
     let cw = canvasWidgets[i];
     console.log('CW ' + cw.text + ' - ' + cw.type);
-    let intersectingWidgets = await miro.board.widgets.__getIntersectedObjects(cw.bounds);
-    for (let j = 0; j < intersectingWidgets.length; j++){
-      let iw = intersectingWidgets[j];
-      console.log('IW ' + iw.text + ' - ' + iw.type);
+    for (let w in widgets){
+      if (isChild(cw, w)){
+        console.log('CHILD ' + w.text + ' - ' + w.type);
+      }
     }
   }
+}
+
+function isChild(parent, child){
+  return child.bounds.left > parent.bounds.left 
+    && child.bounds.right < parent.bounds.right
+    && child.bounds.top > parent.bounds.top
+    && child.bounds.bottom < parent.bounds.bottom;
 }
