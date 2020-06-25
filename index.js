@@ -21,7 +21,7 @@ function run() {
 function checkForCanvas(tags){
   for (let i = 0; i < tags.length; i++){
     let tag = tags[i]
-    alert(tag.id + " - " tag.title)
+    alert(tag.id + " - " + tag.title)
     if (tag.title == "weekcanvas"){
       alert("Week Canvas exist!")
     }
