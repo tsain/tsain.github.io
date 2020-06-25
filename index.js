@@ -11,19 +11,38 @@ function run() {
         toolbarSvgIcon: icon24,
         librarySvgIcon: icon48,
         onClick: () => {
-          miro.board.tags.get().then(checkForCanvas)
+//          miro.board.tags.get().then(checkForCanvas)
+          miro.board.widgets.get().then(checkForGrid);
         }
       }
     }
-  })
+  });
+}
+
+function checkForGrid(widgets){
+  for (let i = 0; i < widgets.length; i++){
+    let widget = widgets[i];
+    let props = "";
+    for (const prop in widget){
+      console.log("Property ${prop} = ${widget[prop]}");
+    }
+  }
 }
 
 function checkForCanvas(tags){
   for (let i = 0; i < tags.length; i++){
-    let tag = tags[i]
-    alert(tag.id + " - " + tag.title)
+    let tag = tags[i];
+    
+    
     if (tag.title == "weekcanvas"){
-      alert("Week Canvas exist and no cache again!")
+      updateCanvas();
+      break;
     }
   }
+
+  console.log("No Week Canvas to update");
+}
+
+function updateCanvas(){
+
 }
