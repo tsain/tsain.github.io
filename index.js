@@ -47,8 +47,10 @@ async function updateCanvas(canvasWidgets, widgets){
 }
 
 function isChild(parent, child){
-  return child.bounds.left > parent.bounds.left 
-    && child.bounds.right < parent.bounds.right
-    && child.bounds.top > parent.bounds.top
-    && child.bounds.bottom < parent.bounds.bottom;
+
+  return true;
+  // return child.bounds.left > parent.bounds.left 
+  //   && child.bounds.right < parent.bounds.right
+  //   && child.bounds.top > parent.bounds.top
+  //   && child.bounds.bottom < parent.bounds.bottom;
 }
