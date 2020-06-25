@@ -23,7 +23,7 @@ function checkForCanvas(tags){
     let tag = tags[i]
     alert(tag.id + " - " + tag.title)
     if (tag.title == "weekcanvas"){
-      alert("Week Canvas exist!")
+      alert("Week Canvas exist and no cache!")
     }
   }
 }
