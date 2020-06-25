@@ -11,16 +11,18 @@ function run() {
         toolbarSvgIcon: icon24,
         librarySvgIcon: icon48,
         onClick: () => {
-          miro.board.widgets.get().then(checkForCanvas)
+          miro.board.tags.get().then(checkForCanvas)
         }
       }
     }
   })
 }
 
-function checkForCanvas(widgets){
-  for (let i = 0; i < widgets.length; i++){
-    let widget = widgets[i]
-    alert(widget.id + " - "  + widget.type)
+function checkForCanvas(tags){
+  for (let i = 0; i < tags.length; i++){
+    let tag = tags[i]
+    if (tag.is == "weekcanvas"){
+      alert("Week Canvas exist!")
+    }
   }
 }
