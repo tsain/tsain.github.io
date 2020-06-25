@@ -39,7 +39,8 @@ async function updateCanvas(canvasWidgets){
   for (let i = 0; i < canvasWidgets.length; i++){
     let cw = canvasWidgets[i];
     console.log('CW ' + cw.plainText + ' - ' + cw.type);
-    for (let w in widgets){
+    for (let j = 0; j < widgets.length; j++){
+      let w = widgets[j];
       if (isChild(cw, w)){
         console.log('CHILD ' + w.plainText + ' - ' + w.type);
       }
