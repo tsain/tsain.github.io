@@ -26,7 +26,7 @@ function checkForCanvasWidgets(widgets){
     console.log('W ' + widget.text + ' - ' + widget.type);
     if (widget.type == "SHAPE" && widget.text){
       console.log('W ADDED');
-      canvasWidgets.add(widget);
+      canvasWidgets.push(widget);
     }
   }
 
