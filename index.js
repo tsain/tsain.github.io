@@ -23,7 +23,7 @@ function checkForCanvasWidgets(widgets){
   for (let i = 0; i < widgets.length; i++){
     let widget = widgets[i];
     console.log('W ' + widget.plainText + ' - ' + widget.type);
-    if (widget.type == "SHAPE" && widget.text && !isNaN(widget.text)){
+    if (widget.type == "SHAPE" && widget.plainText && !isNaN(widget.plainText)){
       console.log('W ADDED');
       canvasWidgets.push(widget);
     }
@@ -34,7 +34,7 @@ function checkForCanvasWidgets(widgets){
 
 function updateCanvas(canvasWidgets, widgets){
   canvasWidgets.sort(function(a, b){return a.plainText < b.plainText});
-  
+
   for (let i = 0; i < canvasWidgets.length; i++){
     let cw = canvasWidgets[i];
     console.log('CW ' + cw.plainText + ' - ' + cw.type);
