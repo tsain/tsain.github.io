@@ -11,8 +11,8 @@ function run() {
         toolbarSvgIcon: icon24,
         librarySvgIcon: icon48,
         onClick: () => {
-//          miro.board.tags.get().then(checkForCanvas)
-          miro.board.widgets.get().then(checkForCanvasWidgets);
+          let widgets = await miro.board.widgets.get();
+          checkForCanvasWidgets(widgets);
         }
       }
     }
@@ -23,24 +23,25 @@ function checkForCanvasWidgets(widgets){
   let canvasWidgets = [];
   for (let i = 0; i < widgets.length; i++){
     let widget = widgets[i];
-    console.log('W ' + widget.text + ' - ' + widget.type);
+    console.log('W ' + widget.plainText + ' - ' + widget.type);
     if (widget.type == "SHAPE" && widget.text){
       console.log('W ADDED');
       canvasWidgets.push(widget);
     }
   }
 
-  updateCanvas(canvasWidgets, widgets);
+  updateCanvas(canvasWidgets);
 }
 
-async function updateCanvas(canvasWidgets, widgets){
-
+async function updateCanvas(canvasWidgets){
+  let widgets = await miro.board.widgets.get();
+  
   for (let i = 0; i < canvasWidgets.length; i++){
     let cw = canvasWidgets[i];
-    console.log('CW ' + cw.text + ' - ' + cw.type);
+    console.log('CW ' + cw.plainText + ' - ' + cw.type);
     for (let w in widgets){
       if (isChild(cw, w)){
-        console.log('CHILD ' + w.text + ' - ' + w.type);
+        console.log('CHILD ' + w.plainText + ' - ' + w.type);
       }
     }
   }
