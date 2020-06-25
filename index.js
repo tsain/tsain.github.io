@@ -11,15 +11,15 @@ function run() {
         toolbarSvgIcon: icon24,
         librarySvgIcon: icon48,
         onClick: () => {
-          let widgets = await miro.board.widgets.get();
-          checkForCanvasWidgets(widgets);
+          checkForCanvasWidgets();
         }
       }
     }
   });
 }
 
-function checkForCanvasWidgets(widgets){
+async function checkForCanvasWidgets(widgets){
+  let widgets = await miro.board.widgets.get();
   let canvasWidgets = [];
   for (let i = 0; i < widgets.length; i++){
     let widget = widgets[i];
@@ -35,7 +35,7 @@ function checkForCanvasWidgets(widgets){
 
 async function updateCanvas(canvasWidgets){
   let widgets = await miro.board.widgets.get();
-  
+
   for (let i = 0; i < canvasWidgets.length; i++){
     let cw = canvasWidgets[i];
     console.log('CW ' + cw.plainText + ' - ' + cw.type);
