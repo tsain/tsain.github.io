@@ -11,15 +11,14 @@ function run() {
         toolbarSvgIcon: icon24,
         librarySvgIcon: icon48,
         onClick: () => {
-          checkForCanvasWidgets();
+          miro.board.widgets.get().then(checkForCanvasWidgets);
         }
       }
     }
   });
 }
 
-async function checkForCanvasWidgets(){
-  let widgets = await miro.board.widgets.get();
+function checkForCanvasWidgets(widgets){
   let canvasWidgets = [];
   for (let i = 0; i < widgets.length; i++){
     let widget = widgets[i];
@@ -30,12 +29,10 @@ async function checkForCanvasWidgets(){
     }
   }
 
-  updateCanvas(canvasWidgets);
+  updateCanvas(canvasWidgets, widgets);
 }
 
-async function updateCanvas(canvasWidgets){
-  let widgets = await miro.board.widgets.get();
-
+function updateCanvas(canvasWidgets){
   for (let i = 0; i < canvasWidgets.length; i++){
     let cw = canvasWidgets[i];
     console.log('CW ' + cw.plainText + ' - ' + cw.type);
@@ -49,10 +46,8 @@ async function updateCanvas(canvasWidgets){
 }
 
 function isChild(parent, child){
-
-  return true;
-  // return child.bounds.left > parent.bounds.left 
-  //   && child.bounds.right < parent.bounds.right
-  //   && child.bounds.top > parent.bounds.top
-  //   && child.bounds.bottom < parent.bounds.bottom;
+  return child.bounds.left > parent.bounds.left 
+    && child.bounds.right < parent.bounds.right
+    && child.bounds.top > parent.bounds.top
+    && child.bounds.bottom < parent.bounds.bottom;
 }
