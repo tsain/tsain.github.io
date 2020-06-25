@@ -52,7 +52,7 @@ function compare(a, b){
     return 1;
   }
   else if (a.plainText > b.plainText){
-    return 1;
+    return -1;
   }
   return 0;
 }
