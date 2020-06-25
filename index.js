@@ -12,41 +12,33 @@ function run() {
         librarySvgIcon: icon48,
         onClick: () => {
 //          miro.board.tags.get().then(checkForCanvas)
-          miro.board.widgets.get().then(checkForGrid);
+          miro.board.widgets.get().then(checkForCanvasWidgets);
         }
       }
     }
   });
 }
 
-function checkForGrid(widgets){
+function checkForCanvasWidgets(widgets){
+  let canvasWidgets = [];
   for (let i = 0; i < widgets.length; i++){
     let widget = widgets[i];
-    if (widget.type != "GRID"){
-      continue;
-    }
-
-    Object.getOwnPropertyNames(widget).forEach(key => {
-      let value = widget[key];
-      console.log(key + " - " + value);
-    });
-  }
-}
-
-function checkForCanvas(tags){
-  for (let i = 0; i < tags.length; i++){
-    let tag = tags[i];
-    
-    
-    if (tag.title == "weekcanvas"){
-      updateCanvas();
-      break;
+    if (widget.type == "SHAPE" && widget.text){
+      canvasWidgets.add(widget);
     }
   }
 
-  console.log("No Week Canvas to update");
+  updateCanvas(canvasWidgets);
 }
 
-function updateCanvas(){
+function updateCanvas(canvasWidgets, widgets){
 
+  for (let i = 0; i < canvasWidgets.length; i++){
+    let cw = canvasWidgets[i];
+    console.log('CW ' + cw.text + ' - ' + cw.type);
+    let intersectingWidgets = await miro.board.widgets.__getIntersectingObjects(cw.bounds);
+    for (const iw in intersectingWidgets){
+      console.log('IW ' + iw.text + ' - ' + iw.type);
+    }
+  }
 }
