@@ -22,9 +22,9 @@ function run() {
 function checkForGrid(widgets){
   for (let i = 0; i < widgets.length; i++){
     let widget = widgets[i];
-    let props = "";
+    console.log('PROPERTIES OF ' + widget.id + ' - ' + widget.type)
     for (const prop in widget){
-      console.log('Property' + prop + ' = ' + widget[prop]);
+      console.log('Property ' + prop + ' = ' + widget[prop]);
     }
   }
 }
