@@ -32,7 +32,7 @@ function checkForCanvasWidgets(widgets){
   updateCanvas(canvasWidgets, widgets);
 }
 
-function updateCanvas(canvasWidgets){
+function updateCanvas(canvasWidgets, widgets){
   for (let i = 0; i < canvasWidgets.length; i++){
     let cw = canvasWidgets[i];
     console.log('CW ' + cw.plainText + ' - ' + cw.type);
