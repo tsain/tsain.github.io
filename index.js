@@ -24,7 +24,7 @@ function checkForGrid(widgets){
     let widget = widgets[i];
     let props = "";
     for (const prop in widget){
-      console.log("Property ${prop} = ${widget[prop]}");
+      console.log('Property' + prop + ' = ' + widget[prop]);
     }
   }
 }
