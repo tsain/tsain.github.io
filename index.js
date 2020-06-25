@@ -18,7 +18,7 @@ function run() {
   });
 }
 
-async function checkForCanvasWidgets(widgets){
+async function checkForCanvasWidgets(){
   let widgets = await miro.board.widgets.get();
   let canvasWidgets = [];
   for (let i = 0; i < widgets.length; i++){
