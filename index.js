@@ -33,7 +33,7 @@ function checkForCanvasWidgets(widgets){
 }
 
 function updateCanvas(canvasWidgets, widgets){
-  canvasWidgets.sort(function(a, b){return a.plainText < b.plainText});
+  canvasWidgets.sort(compare);
 
   for (let i = 0; i < canvasWidgets.length; i++){
     let cw = canvasWidgets[i];
@@ -45,6 +45,16 @@ function updateCanvas(canvasWidgets, widgets){
       }
     }
   }
+}
+
+function compare(a, b){
+  if (a.plainText < b.plainText){
+    return 1;
+  }
+  else if (a.plainText > b.plainText){
+    return 1;
+  }
+  return 0;
 }
 
 function isChild(parent, child){
