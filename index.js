@@ -22,13 +22,11 @@ function run() {
 function checkForGrid(widgets){
   for (let i = 0; i < widgets.length; i++){
     let widget = widgets[i];
-    if (widget.type == "GRID"){
-      for (const prop in widget){
-        console.log('Property ' + prop + ' = ' + widget[prop]);
-        if (prop == "capabilities"){
-          for (const cap in widget[prop]){
-            console.log('Capability ' + cap + ' = ' + widget[prop][cap]);
-          }
+    for (const prop in widget){
+      console.log('Property ' + prop + ' = ' + widget[prop]);
+      if (prop == "metadata"){
+        for (const cap in widget[prop]){
+          console.log('Metadata ' + cap + ' = ' + widget[prop][cap]);
         }
       }
     }
