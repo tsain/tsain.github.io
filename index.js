@@ -43,13 +43,17 @@ function updateCanvas(canvasWidgets, widgets){
   let currentWeek = ISO8601_week_no(new Date());
   console.log("Current week is " + currentWeek);
 
+  let weeks = {};
+
   for (let i = 0; i < canvasWidgets.length; i++){
     let cw = canvasWidgets[i];
     console.log('CW ' + cw.plainText + ' - ' + cw.type);
+    weeks[cw.plainText] = {obj: cw, children: []};
     for (let j = 0; j < widgets.length; j++){
       let w = widgets[j];
       if (isChild(cw, w)){
         console.log('CHILD ' + w.plainText + ' - ' + w.type);
+        weeks[cw.plainText].children.push(w);
       }
     }
   }
