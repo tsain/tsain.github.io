@@ -38,7 +38,7 @@ async function updateCanvas(canvasWidgets, widgets){
   for (let i = 0; i < canvasWidgets.length; i++){
     let cw = canvasWidgets[i];
     console.log('CW ' + cw.text + ' - ' + cw.type);
-    let intersectingWidgets = await miro.board.widgets.__getIntersectingObjects(cw.bounds);
+    let intersectingWidgets = await miro.board.widgets.__getIntersectedObjects(cw.bounds);
     for (const iw in intersectingWidgets){
       console.log('IW ' + iw.text + ' - ' + iw.type);
     }
