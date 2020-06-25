@@ -27,7 +27,7 @@ function checkForGrid(widgets){
         console.log('Property ' + prop + ' = ' + widget[prop]);
         if (prop == "capabilities"){
           for (const cap in prop){
-            console.log('Capability ' + cap + ' = ' + prop[cap]);
+            console.log('Capability ' + cap + ' = ' + widget[prop][cap]);
           }
         }
       }
