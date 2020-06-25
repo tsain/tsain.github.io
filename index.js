@@ -33,7 +33,7 @@ function checkForCanvasWidgets(widgets){
   updateCanvas(canvasWidgets);
 }
 
-function updateCanvas(canvasWidgets, widgets){
+async function updateCanvas(canvasWidgets, widgets){
 
   for (let i = 0; i < canvasWidgets.length; i++){
     let cw = canvasWidgets[i];
