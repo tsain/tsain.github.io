@@ -23,7 +23,9 @@ function checkForCanvasWidgets(widgets){
   let canvasWidgets = [];
   for (let i = 0; i < widgets.length; i++){
     let widget = widgets[i];
+    console.log('W ' + widget.text + ' - ' + widget.type);
     if (widget.type == "SHAPE" && widget.text){
+      console.log('W ADDED');
       canvasWidgets.add(widget);
     }
   }
