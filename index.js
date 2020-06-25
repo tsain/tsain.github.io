@@ -11,9 +11,16 @@ function run() {
         toolbarSvgIcon: icon24,
         librarySvgIcon: icon48,
         onClick: () => {
-          alert('wtf')
+          miro.board.widgets.get().then(checkForCanvas)
         }
       }
     }
   })
+}
+
+function checkForCanvas(widgets){
+  for (let i = 0; i < widgets.length; i++){
+    let widget = widgets[i]
+    alert(widget.id + " - "  + widget.type)
+  }
 }
