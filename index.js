@@ -22,7 +22,7 @@ function run() {
 function checkForGrid(widgets){
   for (let i = 0; i < widgets.length; i++){
     let widget = widgets[i];
-    if (widget.type = "GRID"){
+    if (widget.type == "GRID"){
       for (const prop in widget){
         console.log('Property ' + prop + ' = ' + widget[prop]);
         if (prop == "capabilities"){
