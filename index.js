@@ -75,6 +75,9 @@ function updateWeeks(firstWeek, weeks){
   let start = Number(firstWeek.obj.plainText);
   let end = start + numWeeks;
 
+  console.log("Starting at week " + start);
+  console.log("Ending at week " + end);
+
   for (let i = start; i < end; i++){
     updateWeekNumber(weeks[i].obj, currentWeek, i);
 
@@ -99,7 +102,7 @@ function addToDelayed(dueItems){
 
 function moveDueItems(weekNumber, dueItems, weeks){
   for (let i = 0; i < dueItems.length; i++){
-    dueItems[i].x = weeks[weekNumber].x;
+    dueItems[i].x = weeks[weekNumber].obj.x;
   }
 }
 
