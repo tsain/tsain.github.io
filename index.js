@@ -93,13 +93,14 @@ function updateWeeks(firstWeek, weeks){
 }
 
 function updateWeekNumber(week, currentWeek, weekCounter){
-  //week.plainText = currentWeek + weekCounter;
+  week.plainText = currentWeek + weekCounter;
+  miro.board.widgets.update([week]);
   console.log(currentWeek + weekCounter);
 }
 
 function addToDelayed(dueItems){
   for (let i = 0; i < dueItems.length; i++){
-    miro.board.widgets.transformDelta([dueItems[i].id], delayedCol.x - dueItems[i].x);
+    miro.board.widgets.transformDelta([dueItems[i].id], delayedCol.x - dueItems[i].x).then(miro.board.widgets.bringForward(dueItems[i].id));
   }
 }
 
