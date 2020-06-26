@@ -85,8 +85,6 @@ function updateWeeks(firstWeek, weeks){
       moveDueItems(weeks[i].obj.plainText, weeks[i].children, weeks);
     }
   }
-
-  weeks[currentWeek] = {obj: null; children[]};
 }
 
 function updateWeekNumber(week, currentWeek, weekCounter){
