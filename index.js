@@ -43,7 +43,7 @@ function getSchedules(weekColumns, widgets){
   let weeks = {};
   let firstWeek = null;
 
-  for (let i = 0; i < canvasWidgets(weekColumns.length; i++){
+  for (let i = 0; i < weekColumns.length; i++){
     let wc = weekColumns[i];
     console.log('WC ' + wc.plainText + ' - ' + wc.type);
     weeks[wc.plainText] = {obj: wc, children: []};
