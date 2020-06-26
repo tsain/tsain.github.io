@@ -72,7 +72,7 @@ function updateWeeks(firstWeek, weeks){
     return;
   }
 
-  let start = Number(currentWeek.obj.plainText);
+  let start = Number(firstWeek.obj.plainText);
   let end = start + numWeeks;
 
   for (let i = start; i < end; i++){
