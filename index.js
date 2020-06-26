@@ -101,6 +101,10 @@ function addToDelayed(dueItems){
 }
 
 function moveDueItems(weekNumber, dueItems, weeks){
+  console.log("Moving to week number " + weekNumber);
+  console.log("Due items " + dueItems);
+  console.log("weeks " + weeks);
+  
   for (let i = 0; i < dueItems.length; i++){
     dueItems[i].x = weeks[weekNumber].obj.x;
   }
