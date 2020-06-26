@@ -79,19 +79,20 @@ function updateWeeks(firstWeek, weeks){
   console.log("Ending at week " + end);
 
   for (let i = start; i < end; i++){
-    updateWeekNumber(weeks[i].obj, currentWeek, i - start);
-
     if (i < currentWeek){
       addToDelayed(weeks[i].children);
     }
     else{
-      moveDueItems(weeks[i].obj.plainText, weeks[i].children, weeks);
+      //moveDueItems(weeks[i].obj.plainText, weeks[i].children, weeks);
     }
+
+    updateWeekNumber(weeks[i].obj, currentWeek, i - start);
   }
 }
 
 function updateWeekNumber(week, currentWeek, weekCounter){
-  week.plainText = currentWeek + weekCounter;
+  //week.plainText = currentWeek + weekCounter;
+  console.log(currentWeek + weekCounter);
 }
 
 function addToDelayed(dueItems){
