@@ -99,7 +99,7 @@ function updateWeekNumber(week, currentWeek, weekCounter){
 
 function addToDelayed(dueItems){
   for (let i = 0; i < dueItems.length; i++){
-    dueItems[i].transformDelta([dueItems[i].id], delayedCol.x - dueItems[i].x);
+    miro.board.widgets.transformDelta([dueItems[i].id], delayedCol.x - dueItems[i].x);
   }
 }
 
