@@ -79,6 +79,7 @@ function updateWeeks(firstWeek, weeks){
   console.log("Ending at week " + end);
 
   for (let i = start; i < end; i++){
+    console.log("i " + i);
     if (i < currentWeek){
       console.log("Adding " + dueItems.length + " from week " + i);
       addToDelayed(weeks[i].children);
