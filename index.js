@@ -99,7 +99,7 @@ function updateWeekNumber(week, currentWeek, weekCounter){
 
 function addToDelayed(dueItems){
   for (let i = 0; i < dueItems.length; i++){
-    dueItems[i].x = delayedCol.x;
+    dueItems[i].transformDelta([dueItems[i].id], delayedColumn.x - dueItems[i].x);
   }
 }
 
