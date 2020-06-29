@@ -27,17 +27,16 @@ function getWeekColumns(widgets){
   for (let i = 0; i < widgets.length; i++){
     let widget = widgets[i];
     
-    widget.onClick = () => { alert("Clicked"); }
-
     if (widget.type == "SHAPE" && widget.plainText && !isNaN(widget.plainText)){
       weekColumns.push(widget);
     }
     else if (widget.type == "SHAPE" && widget.plainText == "-"){
+      widget.onClick = () => { alert("Clicked"); }
       delayedCol = widget;
     }
   }
 
-  getSchedules(weekColumns, widgets);
+  //getSchedules(weekColumns, widgets);
 }
 
 function getSchedules(weekColumns, widgets){
