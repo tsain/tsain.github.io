@@ -26,6 +26,9 @@ function getWeekColumns(widgets){
   let weekColumns = [];
   for (let i = 0; i < widgets.length; i++){
     let widget = widgets[i];
+    
+    widget.onClick = () => { alert("Clicked"); }
+
     if (widget.type == "SHAPE" && widget.plainText && !isNaN(widget.plainText)){
       weekColumns.push(widget);
     }
@@ -79,9 +82,7 @@ function updateWeeks(firstWeek, weeks){
   console.log("Ending at week " + end);
 
   for (let i = start; i < end; i++){
-    console.log("i " + i);
     if (i < currentWeek){
-      console.log("Adding " + weeks[i].children.length + " from week " + i);
       addToDelayed(weeks[i].children);
     }
     else{
@@ -93,9 +94,8 @@ function updateWeeks(firstWeek, weeks){
 }
 
 function updateWeekNumber(week, currentWeek, weekCounter){
-  week.plainText = currentWeek + weekCounter;
+  week.text = "<p>" + currentWeek + weekCounter + "</p>";
   miro.board.widgets.update([week]);
-  console.log(currentWeek + weekCounter);
 }
 
 function addToDelayed(dueItems){
